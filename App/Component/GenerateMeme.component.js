@@ -274,18 +274,20 @@ export default function MultiTextDraggable() {
                     </View>
                     <TouchableOpacity onPress={() => {
                         setIsEditing(true);
+                        setVisible(!visible);
                     }}>
                         <Text style={styles.option}>Ganti Teks</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {
                         const filtered = find(texts, (item) => item.id === targetText);
                         addTextBox(result(filtered, 'text', ''));
+                        setVisible(!visible);
                     }}>
                         <Text style={styles.option}>Copy</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {
                         const filtered = filter(texts, (item) => item.id !== targetText);
-                        toggleMenu();
+                        setVisible(!visible);
                         setTexts(filtered);
                     }}>
                         <Text style={styles.option}>Hapus</Text>
