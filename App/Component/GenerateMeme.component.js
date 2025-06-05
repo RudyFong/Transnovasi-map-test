@@ -30,14 +30,15 @@ import styles from './GenerateMeme.styles';
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
-
 const DraggableZoomableImage = ({ uri }) => {
-    const translateX = useSharedValue(0);
-    const translateY = useSharedValue(0);
+    const centerX = -75;
+    const centerY = -150;
+    const translateX = useSharedValue(centerX);
+    const translateY = useSharedValue(centerY);
     const scale = useSharedValue(1);
 
-    const savedTranslateX = useSharedValue(0);
-    const savedTranslateY = useSharedValue(0);
+    const savedTranslateX = useSharedValue(centerX);
+    const savedTranslateY = useSharedValue(centerY);
     const savedScale = useSharedValue(1);
 
     const panGesture = Gesture.Pan()
@@ -85,9 +86,6 @@ const DraggableText = ({ id, text, onChangeText, startX = 100, startY = 100, tog
     const scale = useSharedValue(1);
     const savedScale = useSharedValue(1);
 
-
-
-
     const panGesture = Gesture.Pan()
         .onUpdate((e) => {
             translateX.value = savedX.value + e.translationX;
@@ -115,7 +113,6 @@ const DraggableText = ({ id, text, onChangeText, startX = 100, startY = 100, tog
             { scale: scale.value },
         ],
     }));
-
 
     return (
         <GestureDetector gesture={composedGesture}>
@@ -244,7 +241,6 @@ export default function MultiTextDraggable() {
 
     return (
         <GestureHandlerRootView style={styles.container}>
-
             <View style={styles.outterCanvas}>
                 <ViewShot ref={viewShotRef} options={{ format: 'jpg', quality: 0.9 }}>
                     <View style={styles.canvas}>
@@ -305,8 +301,6 @@ export default function MultiTextDraggable() {
                 <Button title="Delete ALL" onPress={deleteAll} />
                 <Button title="Save Image" onPress={captureAndSave} />
             </View>
-
         </GestureHandlerRootView>
     );
 }
-
