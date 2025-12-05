@@ -523,7 +523,7 @@ class HomeScreenComponent extends React.Component {
         placeholder="Cari lokasi"
         onPress={this.handlePlaceSelect}
         query={{
-          key: 'AIzaSyA2DEWsP398ydy32LfiakPB9_q_2gtl8Tk', // Replace with your actual Google API key
+          key: '', // Replace with your actual Google API key
           language: 'en',
         }}
         styles={{
