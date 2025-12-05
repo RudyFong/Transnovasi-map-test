@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import HomeScreenComponent from '../Component/Home.component';
+import HomeScreenComponent from '../Component/HomeIndex.component';
 
 
 class HomeScreen extends React.Component {
@@ -18,11 +18,9 @@ class HomeScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
 };
 
 const mapDispatchToProps = (dispatch) => ({
-
 });
 
 export default connect(null, null)(HomeScreen);
